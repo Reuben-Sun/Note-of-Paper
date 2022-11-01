@@ -69,6 +69,53 @@ for(int i = 0; i < list.Length(); i++){
 
 ### 视差问题
 
+效果如下
+
+![视差](../Image/视差.png)
+
+#### 传统方案
+
+这里是视差矫正的传统方案（不是作者的）
+
+![视差采样](../Image/视差采样.png)
+
+- 根据相机位置和着色点，得到观察光线**V**和反射光线**R**
+- **R**会与物体相交于P点
+- 用Cubemap所在的C点于P点的向量进行采样
+
+```c++
+//AABB包围盒
+float3 SampleCubemap(...){
+    float3 V = PosWS - CameraWS;
+    float3 R = reflect(V, N);
+    //求交点P
+    float3 FirstIntersect = (BoxMax - PosWS) / R;
+    float3 SecondIntersect = (BoxMin - PosWS) / R;
+    float3 FurthestPlane = max(FirstIntersect, SecondIntersect);
+    float Distance = min(min(FurthestPlane.x, FurthestPlane.y), FurthestPlane.z);
+    float3 P = PosWS + R + Distance;
+    //采样
+    float3 R1 = P - PosC;
+    return texCUBE(envMap, R1);
+}
+```
+
+时至今日，有了更多更便宜的求交算法，配合硬件加速，效率非常高
+
+#### 作者的方案
+
+由于作者的Cubemap就和传统的不一样（指根据POI混合出来），于是要使用不同的视差矫正方案
+
+![作者的视差矫正](../Image/作者的视差矫正.png)
+
+作者的方案放在现在其实也不怎么好了，原理极其简单暴力，就是将相机根据mirror镜像，在新的相机位置绘制一张Texture2D。很明显，这太overdraw了
+
+而且随着RTX显卡和光追的发展，作者的这套方案可能还没“传统方案”性能好
+
+
+
+
+
 
 
 

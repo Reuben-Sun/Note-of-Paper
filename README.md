@@ -4,6 +4,12 @@
 
 #### Local Image-based Lighting With Parallax-corrected Cubemap
 
-Siggraph 2012，非常经典且基础的一篇论文
+Siggraph 2012，讲述了使用Cubemap处理Loacl IBL时遇到的接缝问题、视差问题
 
 [开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/GI/Parallax-corrected%20Cubemap.md)
+
+#### Light probe interpolation using tetrahedral tessellations
+
+GDC 2012，讲述了使用空间四面体做Light Probe插值
+
+[开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/GI/Light%20probe%20interpolation.md)
