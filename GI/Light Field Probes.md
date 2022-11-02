@@ -23,7 +23,7 @@
 
 下图为Sponza场景的Light Field信息，使用**八面体映射（Octhedral Mapping）**而非Cubemap
 
-![Light Field](../Image/Light Field.png)
+![LightField](../Image/LightField.png)
 
 使用世界坐标+空间角对Light Field进行采样
 
