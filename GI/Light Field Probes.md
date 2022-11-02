@@ -29,7 +29,7 @@
 
 #### 八面体映射
 
-![Octhedral Mapping](../Image/Octhedral Mapping.jpg)
+![OcthedralMapping](../Image/OcthedralMapping.jpg)
 
 ```c#
 //用于判断在第几象限

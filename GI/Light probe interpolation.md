@@ -35,7 +35,7 @@ Light Probe内存储的SH系数，其实是广义傅里叶变化的系数（其�
 
 从摆放入手，只要probe都沿着obb整齐摆放，那么自然好插值（很像Volume GI）
 
-![OBB Place](../Image/OBB Place.png)
+![OBB Place](../Image/OBBPlace.png)
 
 为了提高空间利用率，可以使用八叉树对空间进行划分（会让插值变得更复杂）
 
@@ -56,7 +56,7 @@ Light Probe内存储的SH系数，其实是广义傅里叶变化的系数（其�
 - 相邻probe连线，构建出一个**邻接图**
 - 着色点用笑脸表示，查找其所在的三角形，用三角形的顶点进行插值
 
-![Probe 2D](../Image/Probe 2D.png)
+![Probe 2D](../Image/Probe2D.png)
 
 转化到三维就是空间四面体（tetrahedron）
 
