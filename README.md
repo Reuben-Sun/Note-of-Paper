@@ -38,5 +38,11 @@ GDC 2012，讲述了使用空间四面体做Light Probe插值，能让人从数�
 
 [开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/GI/Light%20Probe%20Placement.md)
 
+#### Summed-Area Tables for Texture Mapping
+
+1984年Siggraph，远古论文，讨论了贴图映射、滤波，将SAT引入了计算机图形学
+
+
+
 #### Fast Filtering of Reflection Probes
 
