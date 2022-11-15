@@ -42,7 +42,8 @@ GDC 2012，讲述了使用空间四面体做Light Probe插值，能让人从数�
 
 1984年Siggraph，远古论文，讨论了贴图映射、滤波，将SAT引入了计算机图形学
 
-
+[开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/Math/Summed-area%20tables.md)
 
 #### Fast Filtering of Reflection Probes
 
+[开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/GI/Fast%20Filtering%20of%20Reflection%20Probes.md)
