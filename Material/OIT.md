@@ -1,8 +1,13 @@
 # Weighted Blended Order-Independent Transparency
 
-顺序无关的半透明混合渲染（Weighted Blended Order-Independent Transparency，WBOI）
-
 许多半透明特效（比如云雾火焰，不发生折射的玻璃），就是将渲染结果覆盖在像素上。
+
+传统的顺序无关的半透明渲染（OIT）主要有几种方案
+
+- 一个像素多次采样，将Alpha转化为binary coverage
+- 存储距离表面最近的表面子集
+- 
+- 重新定义混合运算符，使其支持顺序无关运算
 
 ### Alpha Test
 
@@ -18,7 +23,7 @@ clip(texColor.a - ALPHA);
   - 像素只有完全透明和完全不透明两个状态，本质上是一种带孔洞的不透明
   - 在边缘处效果较差，可能出现黑边
 
-### Alpha Coverage
+#### Alpha Coverage
 
 透明度覆盖，这是基于MSAA对透明度测试的改进。
 
@@ -48,6 +53,28 @@ $$
 
 ### Depth Peeling
 
-逐层剥离。上面半透明混合时，是从最底层开始向上覆盖，而逐层剥离是从顶层开始一层层向下剥离。Alpha Blind的over操作只能进行半透明和不透明间的混合，而Depth Peeling的under操作能实现不透明间的混合
+逐层剥离，是Alpha Blend的改进
+
+上面半透明混合时，是从最底层开始向上覆盖，而逐层剥离是从顶层开始一层层向下剥离。Alpha Blind的over操作只能进行半透明和不透明间的混合
+
+而Depth Peeling的under操作能实现不透明间的混合，先将所有的半透明物体进行混合（under），最后将一张半透明物体和不透明物体进行混合，得到最终结果
 
 ![DepthPeeling](../Image/DepthPeeling.webp)
+
+<img src="../Image/DepthPeeling2.webp" alt="DepthPeeling2" style="zoom:50%;" />
+
+- 优点
+  - under操作是顺序无关的
+  - 能解决半透明物体互相交叉
+- 缺点
+  - 使用多个pass，性能较差
+
+![半透明物体互相交叉](../Image/半透明物体互相交叉.webp)
+
+
+
+
+
+### 参考
+
+https://zhuanlan.zhihu.com/p/368065919
