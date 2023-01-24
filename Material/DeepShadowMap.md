@@ -93,4 +93,4 @@ $$
 
 ![cloud](../Image/cloud.png)
 
-![DeepAnd Normal](../Image/DeepAnd Normal.png)
+![DeepAnd Normal](../Image/DeepAndNormal.png)
