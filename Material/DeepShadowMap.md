@@ -19,7 +19,7 @@
 ![Visibility](../Image/Visibility.png)
 
 - z：深度
-- $\tau $：介质透光率（transmittance）
+- $\tau $：介质透光率（transmittance），是一个分段常数函数
 - i、j：屏幕点坐标，$(i+1/2,j+1/2)$是阴影相机屏幕中心
 - f：滤波器函数（滤波器的中心是阴影相机屏幕中心）
 - r：滤波半径
@@ -64,4 +64,33 @@ $$
 
 我们在生成visibility function时，对于每一个顶点做n次采样，这样的复杂度是$O(n^2)$，过于低效
 
-作者提供了一种$O(n\log n)$的算法
+作者提供了一种$O(n\log n)$的算法：
+
+1. 将顶点按深度添加至堆中，根节点透光率为1
+2. 遍历堆，对于每一个节点，使用父顶点和当前顶点更新透光率
+
+$$
+V'=V+\omega_j(\tau'_j-\tau_j)
+$$
+
+#### 颜色阴影
+
+对于RGB三个通道单独存储透光率，这样阴影采样时就可以得到有颜色的阴影
+
+#### Mip-Mapping
+
+#### Tiling and Cache
+
+我们以tile的形式存储deep shadow map，这允许我们只加载、缓存实际需要访问的map
+
+#### Motion Blur
+
+通过将随机时间和采样点混合，可以很好地支持动态模糊
+
+![动态模糊](../Image/动态模糊.png)
+
+### 最终结果
+
+![cloud](../Image/cloud.png)
+
+![DeepAnd Normal](../Image/DeepAnd Normal.png)
