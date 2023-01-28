@@ -2,7 +2,7 @@
 
 我的图形学论文读书笔记
 
-### GI
+### 一：GI
 
 #### Local Image-based Lighting With Parallax-corrected Cubemap
 
@@ -38,7 +38,7 @@ GDC 2012，讲述了使用空间四面体做Light Probe插值，能让人从数�
 
 [开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/GI/Fast%20Filtering%20of%20Reflection%20Probes.md)
 
-### Material
+### 二：Material
 
 #### The Challenges of Rendering an Open World in Far Cry 5（没读完）
 
@@ -46,7 +46,13 @@ GDC 2012，讲述了使用空间四面体做Light Probe插值，能让人从数�
 
 [开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/Material/FarCry5.md)
 
-### Math
+#### Deep Shadow Map
+
+上古老论文，使用了光线步进的方式构建了一张visibility map，效果比只使用一个深度的ShadowMap要好，适用范围更广
+
+[开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/Material/DeepShadowMap.md)
+
+### 三：Math
 
 #### Summed-Area Tables for Texture Mapping
 
@@ -60,7 +66,11 @@ GDC 2012，讲述了使用空间四面体做Light Probe插值，能让人从数�
 
 [开始阅读](https://github.com/Reuben-Sun/Note-of-Paper/blob/main/Material/DeepShadowMap.md)
 
+### 四：Post Process
 
+#### Scalable Ambient Obscurance
+
+2012年的老论文，
 
 
 
